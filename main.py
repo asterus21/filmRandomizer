@@ -2,7 +2,6 @@ import logging
 import random
 import sqlite3
 
-from data import Answers, Bot, Chat, Movies, User
 from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
@@ -11,6 +10,9 @@ from telegram.ext import (
     MessageHandler,
     filters,
 )
+
+from data import Answers, Bot, Chat, Movies, User
+
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
@@ -44,14 +46,14 @@ def find_random_film() -> str:
 
 def give_random_answer(answers: tuple[str]) -> str:
 
-    """The function accepts a list with a list of answers and returns a random answer."""
+    """The function accepts a list of answers and returns a random answer."""
 
     return random.choice(answers)
 
 
 async def get_movie(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    """The function returns a film from the current list (for internal use only)."""
+    """The function returns a film from the movies list (for internal use only)."""
 
     if not update.message:
         return None
@@ -63,7 +65,7 @@ async def get_movie(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def get_film(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    """The function returns a film from the main list of films."""
+    """The function returns a film from the films list."""
 
     if not update.message:
         return None
@@ -104,8 +106,8 @@ def main():
     app.add_handler(
         MessageHandler(
             (
-                filters.Chat(chat_id=CHAT.GET_CHAT_ID)
-                | filters.User(user_id=USER.GET_USER_ID)
+                filters.Chat(chat_id=CHAT.GET_CHAT_ID) | 
+                filters.User(user_id=USER.GET_USER_ID)
             )
             & filters.TEXT,
             answer_to_specific_user,
