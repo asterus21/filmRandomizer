@@ -12,35 +12,48 @@ configuration = {
 FILMS = Films()
 DATA = FILMS.GET_ONE_FROM_A_LIST_OF_FILMS
 
-records = [x for x in range(len(DATA))]
-movies = dict(zip(records, DATA))
+def get_data(data: tuple) -> dict:
 
-try:
-    connection = mysql.connector.connect(**configuration)
-    print("Successfully connected to the database!")
-    cursor = connection.cursor(buffered=True)
-    
-    query = "INSERT INTO films.films (ID, FILM) VALUES (%s, %s)"
-    
-    for id, film in movies.items():
-        try:
-            cursor.execute(query, (id, film))
-            print(f"Inserted: ID={id}, Film='{film}'")
-        except mysql.connector.Error as err:
-            print(f"Error inserting ID {id}: {err}")
-    
-    connection.commit()
-    cursor.close()
-    connection.close()
+    '''The function is used to create a dictionary from a tuple to insert into a database.'''
 
-except mysql.connector.Error as err:
-    if err.errno == mysql.connector.errorcode.ER_ACCESS_DENIED_ERROR:
-        print("Something is wrong with your user name or password")
-    elif err.errno == mysql.connector.errorcode.ER_BAD_DB_ERROR:
-        print("Database does not exist")
-    else:
-        print(err)
-finally:
-    if 'connection' in locals() and connection.is_connected():
+    records = [x for x in range(len(data))]
+    movies = dict(zip(records, data))
+
+    return movies
+
+def main():
+
+    movies = get_data(DATA)
+
+    try:
+        connection = mysql.connector.connect(**configuration)
+        print("Successfully connected to the database!")
+        cursor = connection.cursor(buffered=True)
+        
+        query = "INSERT INTO films.films (ID, FILM) VALUES (%s, %s)"
+        
+        for id, film in movies.items():
+            try:
+                cursor.execute(query, (id, film))
+                print(f"Inserted: ID={id}, Film='{film}'")
+            except mysql.connector.Error as err:
+                print(f"Error inserting ID {id}: {err}")
+        
+        connection.commit()
+        cursor.close()
         connection.close()
-        print("Connection closed.")
+
+    except mysql.connector.Error as err:
+        if err.errno == mysql.connector.errorcode.ER_ACCESS_DENIED_ERROR:
+            print("Something is wrong with your user name or password")
+        elif err.errno == mysql.connector.errorcode.ER_BAD_DB_ERROR:
+            print("Database does not exist")
+        else:
+            print(err)
+    finally:
+        if 'connection' in locals() and connection.is_connected():
+            connection.close()
+            print("Connection closed.")
+
+if __name__ == '__main__':
+    main()
