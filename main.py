@@ -1,3 +1,4 @@
+import logging
 import random
 import sqlite3
 
@@ -11,6 +12,11 @@ from telegram.ext import (
     filters,
 )
 
+logging.basicConfig(
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+)
+logger = logging.getLogger(__name__)
+
 ANSWERS = Answers()
 BOT = Bot()
 CHAT = Chat()
@@ -23,21 +29,16 @@ def find_random_film() -> str:
     """The function establishes the database connection to get a random film."""
 
     try:
-        connection = sqlite3.connect("films.db")
-        cursor = connection.cursor()
-
-        cursor.execute("SELECT FILM FROM films ORDER BY RANDOM() LIMIT 1")
-        random_film = cursor.fetchone()[0]
-
-        connection.commit()
-        connection.close()
-
-        return random_film
-
-    except Exception:
-        print("Connection is not established")
-        connection.close()
-
+        with sqlite3.connect("films.db") as connection:
+            cursor = connection.cursor()
+            cursor.execute("SELECT film FROM films ORDER BY RANDOM() LIMIT 1")
+            result = cursor.fetchone()
+            return result[0] if result else None
+    except sqlite3.Error as e:
+        logger.error(f"Database error: {e}")
+        return None
+    except Exception as e:
+        logger.error(f"Unexpected error: {e}")
         return None
 
 
