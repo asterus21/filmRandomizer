@@ -50,13 +50,13 @@ def insert_data_into_database(data: dict, database_configuration: dict) -> None:
             print("Connection closed.")
 
 
-def export_database(password):
+def export_database(password: str):
 
     return subprocess.run(['mysqldump', '-u', 'root', f'-p{password}', 'films'], 
                          stdout=open('films.sql', 'w')).returncode
 
 
-def convert_database(database_configuration):
+def convert_database(database_configuration: dict):
 
     converter = MySQLtoSQLite(
         mysql_host=database_configuration['host'],
