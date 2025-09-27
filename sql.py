@@ -1,5 +1,5 @@
 import mysql.connector
-from mysql_to_sqlite3 import MySQLtoSQLite
+import sqlite3
 import subprocess
 
 
@@ -57,8 +57,8 @@ def export_database(password: str):
 
 
 def convert_database(database_configuration: dict):
-
-    converter = MySQLtoSQLite(
+    # probably not correct
+    converter = sqlite3(
         mysql_host=database_configuration['host'],
         mysql_user=database_configuration['user'],
         mysql_database=database_configuration['database'],
