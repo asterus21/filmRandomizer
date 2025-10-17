@@ -59,7 +59,7 @@ async def get_movie(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return None
 
     await update.message.reply_text(
-        find_random_film(MOVIES.GET_ONE_FROM_A_LIST_OF_MOVIES)
+        random.choice(MOVIES.GET_ONE_FROM_A_LIST_OF_MOVIES)
     )
 
 
