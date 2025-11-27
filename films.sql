@@ -801,7 +801,7 @@ INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Olympia (Leni Riefensta
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('The Day the Earth Stood Still (Robert Wise, 1951)', 'Robert Wise', '1951', 'science fiction');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Дядя Ваня (Андрей Кончаловский, 1970)', 'Андрей Кончаловский', '1970', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Working Girls (Lizzie Borden, 1986)', 'Lizzie Borden', '1986', 'drama');
-INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('L''Enfant (Jean-Pierre and Luc Dardenne, 2005)', 'Jean-Pierre and Luc Dardenne', '2005', 'drama');
+INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('L''Enfant (Jean-Pierre, Luc Dardenne, 2005)', 'Jean-Pierre', '2005', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Amarcord (Federico Fellini, 1973)', 'Federico Fellini', '1973', 'comedy');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('To Be or Not to Be (Ernst Lubitsch, 1942)', 'Ernst Lubitsch', '1942', 'comedy');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('The New World (Terrence Malick, 2005)', 'Terrence Malick', '2005', 'historical');
@@ -825,7 +825,7 @@ INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Rio Bravo (Howard Hawks
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Les yeux sans visage (Georges Franju, 1960)', 'Georges Franju', '1960', 'horror');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Forbidden Planet (Fred M. Wilcox, 1956)', 'Fred M. Wilcox', '1956', 'science fiction');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Szerelmem, Elektra (Miklós Jancsó, 1974)', 'Miklós Jancsó', '1974', 'drama');
-INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('A Matter of Life and Death (Michael Powell and Emeric Pressburger, 1946)', 'Michael Powell and Emeric Pressburger', '1946', 'drama');
+INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('A Matter of Life and Death (Michael Powell, Emeric Pressburger, 1946)', 'Michael Powell', '1946', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Leaving Las Vegas (Terry Gilliam, 1995)', 'Terry Gilliam', '1995', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('臥虎藏龍 (Wòhǔ Cánglóng) (李安 (Ang Lee), 2000)', 'Ang Lee', '2000', 'action');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('La Sortie de l''usine Lumière à Lyon, I (Louis Lumière, 1895)', 'Louis Lumière', '1895', 'documentary');
@@ -1113,7 +1113,7 @@ INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('El ángel exterminador 
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Santa Sangre (Alejandro Jodorowsky, 1989)', 'Alejandro Jodorowsky', '1989', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Про уродов и людей (Алексей Балабанов, 1998)', 'Алексей Балабанов', '1998', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('მონანიება (Покаяние) (თენგიზ აბულაძე (Тенгиз Абуладзе), 1984)', 'Тенгиз Абуладзе', '1984', 'drama');
-INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('A Canterbury Tale (Michael Powell and Emeric Pressburger, 1944)', 'Michael Powell and Emeric Pressburger', '1944', 'drama');
+INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('A Canterbury Tale (Michael Powell, Emeric Pressburger, 1944)', 'Michael Powell, Emeric Pressburger', '1944', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('They Shoot Horses, Don’t They? (Sydney Pollack, 1969)', 'Sydney Pollack', '1969', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Horí, má panenko (Miloš Forman, 1967)', 'Miloš Forman', '1967', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Valley of the Dolls (Mark Robson, 1967)', 'Mark Robson', '1967', 'drama');
@@ -1236,7 +1236,7 @@ INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Written on the Wind (Do
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Caligula (Tinto Brass, Giancarlo Lui, Bob Guccione, 1979)', 'Tinto Brass', '1979', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Gloria (John Cassavetes, 1980)', 'John Cassavetes', '1980', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Die Sehnsucht der Veronika Voss (Rainer Werner Fassbinder, 1982)', 'Rainer Werner Fassbinder', '1982', 'drama');
-INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('I Know Where I''m Going! (Michael Powell and Emeric Pressburger, 1945)', 'Michael Powell and Emeric Pressburger', '1945', 'romance');
+INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('I Know Where I''m Going! (Michael Powell, Emeric Pressburger, 1945)', 'Michael Powell, Emeric Pressburger', '1945', 'romance');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Husbands (John Cassavetes, 1970)', 'John Cassavetes', '1970', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('パプリカ (Papurika) (今 敏 (Satoshi Kon), 2006)', 'Satoshi Kon', '2006', 'science fiction');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('The Sure Thing (Rob Reiner, 1985)', 'Rob Reiner', '1985', 'comedy');
@@ -1305,7 +1305,7 @@ INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Le fantôme de la liber
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Murder on the Orient Express (Sidney Lumet, 1974)', 'Sidney Lumet', '1974', 'mystery');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Сто дней после детства (Сергей Соловьёв, 1975)', 'Сергей Соловьёв', '1975', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Der letzte Mann (Friedrich Wilhelm Murnau, 1924)', 'Friedrich Wilhelm Murnau', '1924', 'drama');
-INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('The Life and Death of Colonel Blimp (Michael Powell and Emeric Pressburger, 1943)', 'Michael Powell and Emeric Pressburger', '1943', 'war');
+INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('The Life and Death of Colonel Blimp (Michael Powell, Emeric Pressburger, 1943)', 'Michael Powell, Emeric Pressburger', '1943', 'war');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Paisà (Roberto Rossellini, 1946)', 'Roberto Rossellini', '1946', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Germania anno zero (Roberto Rossellini, 1948)', 'Roberto Rossellini', '1948', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Youth in Revolt (Miguel Arteta, 2009)', 'Miguel Arteta', '2009', 'comedy');
@@ -4344,7 +4344,7 @@ INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Oddech (Teresa Tyszkiew
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Obraz i gry (Teresa Tyszkiewicz, 1981)', 'Teresa Tyszkiewicz', '1981', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Ziarno (Teresa Tyszkiewicz, 1980)', 'Teresa Tyszkiewicz', '1980', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Сад желаний (Али Хамраев, 1987)', 'Али Хамраев', '1987', 'drama');
-INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Little Fugitive (Raymond Abrashkin (as Ray Ashley), Morris Engel and Ruth Orkin) (unknown, 1953)', 'unknown', '1953', 'drama');
+INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Little Fugitive (Raymond Abrashkin (as Ray Ashley), Morris Engel and Ruth Orkin, 1953)', 'Morris Engel', '1953', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Présentation ou Charlotte et son steak (Éric Rohmer, 1951)', 'Éric Rohmer', '1951', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Bérénice (Éric Rohmer, 1954)', 'Éric Rohmer', '1954', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('La sonate à Kreutzer (Éric Rohmer, 1956)', 'Éric Rohmer', '1956', 'drama');
@@ -4372,7 +4372,7 @@ INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Проклятие (Ж�
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Нечаянно (Жора Крыжовников, 2014)', 'Жора Крыжовников', '2014', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Bérénice (Raúl Ruiz, 1983)', 'Raúl Ruiz', '1983', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Magdalena Viraga (Nina Menkes, 1986)', 'Nina Menkes', '1986', 'drama');
-INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Listen to Britain (Humphrey Jennings and Stewart McAllister, 1942)', 'Humphrey Jennings and Stewart McAllister', '1942', 'documentary');
+INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Listen to Britain (Humphrey Jennings, Stewart McAllister, 1942)', 'Humphrey Jennings', '1942', 'documentary');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('A Diary for Timothy (Humphrey Jennings, 1945)', 'Humphrey Jennings', '1945', 'documentary');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Charles mort ou vif (Alain Tanner, 1969)', 'Alain Tanner', '1969', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Dans la ville blanche (Alain Tanner, 1983)', 'Alain Tanner', '1983', 'drama');
@@ -4889,7 +4889,7 @@ INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Cycling the Frame (Cynt
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Mahlzeiten (Edgar Reitz, 1967)', 'Edgar Reitz', '1967', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Geschichten vom Kübelkind (Edgar Reitz, Ula Stöckl, 1971)', 'Edgar Reitz', '1971', 'drama');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Like Dawn to Dusk (Vivienne Dick, 1983)', 'Vivienne Dick', '1983', 'documentary');
-INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Manhatta (Charles Sheeler and Paul Strand, 1921)', 'Charles Sheeler and Paul Strand', '1921', 'documentary');
+INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Manhatta (Charles Sheeler, Paul Strand, 1921)', 'Charles Sheeler', '1921', 'documentary');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Nocturne (Peggy Ahwesh, 1998)', 'Peggy Ahwesh', '1998', 'experimental');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Perugia Ambulamatograph (Dana Gordon, 1975)', 'Dana Gordon', '1975', 'documentary');
 INSERT INTO films (FILM, DIRECTOR, YEAR, GENRE) VALUES ('Rey muerto (Lucrecia Martel, 1995)', 'Lucrecia Martel', '1995', 'drama');
