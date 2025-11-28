@@ -33,7 +33,7 @@ USER = User()
 
 # Database functions
 def find_random_film() -> str:
-    """The function establishes the database connection to get a random film."""
+    """Returns a random film."""
     try:
         with pymysql.connect(
             user=DATABASE.database["user"],
@@ -52,12 +52,12 @@ def find_random_film() -> str:
 
 
 def give_random_answer(answers: tuple[str]) -> str:
-    """The function accepts a list of answers and returns a random answer."""
+    """Returns a random answer."""
     return random.choice(answers)
 
 
 def get_list_of_genres() -> str:
-    """The function returns a list of genres."""
+    """Returns a list of genres."""
     genres_list = []
     try:
         with pymysql.connect(
@@ -80,7 +80,7 @@ def get_list_of_genres() -> str:
 
 
 def get_list_of_directors() -> str:
-    """The function returns a list of directors."""
+    """Returns a list of directors."""
     directors_list = []
     try:
         with pymysql.connect(
@@ -102,9 +102,19 @@ def get_list_of_directors() -> str:
     return None
 
 
+# def get_films_by_director(directors: list) -> list:
+#     """Returns SQL queries to choose all films by their director."""
+#     films = []
+#     for d in directors:
+#         films.append(
+#             f"SELECT film FROM mysql.`films` WHERE director = {d};"
+#         )
+#     return films
+
+
 # Telegram bot functions
 async def get_movie(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """The function returns a film from the movies list (for internal use only)."""
+    """Handles the /movie command."""
     if not update.message:
         return None
 
@@ -114,7 +124,7 @@ async def get_movie(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def get_genre(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """The function returns a film from the films list."""
+    """Handles the /genre command."""
     if not update.message:
         return None
 
@@ -122,7 +132,7 @@ async def get_genre(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def get_director(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """The function returns a film from the films list."""
+    """Handles the /director command."""
     if not update.message:
         return None
 
@@ -130,7 +140,7 @@ async def get_director(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def get_film(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """The function returns a film from the films list."""
+    """Handles the /film command."""
     if not update.message:
         return None
 
@@ -138,7 +148,7 @@ async def get_film(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 
 async def answer_to_specific_user(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """The function handles a user's message only from a specific user."""
+    """Handles a message from a specific user."""
     if not update.message:
         return None
 
@@ -151,8 +161,7 @@ async def answer_to_specific_user(update: Update, context: ContextTypes.DEFAULT_
 
 
 async def get_any(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """The function handles any other command sent, 
-    i.e. a command which is not registered as a handler."""
+    """Handles any other command."""
     await update.message.reply_text(
         "Используйте команду /film, чтобы получить случайный фильм из списка.\n" \
         "\n" \
@@ -175,9 +184,9 @@ def main():
     app.add_handler(CommandHandler("film", get_film))
     app.add_handler(CommandHandler("movie", get_movie))
     # for debugging
-    app.add_handler(CommandHandler("f", get_film))
     app.add_handler(CommandHandler("d", get_director))
     app.add_handler(CommandHandler("g", get_genre))
+    app.add_handler(CommandHandler("f", get_film))
     app.add_handler(CommandHandler("m", get_movie))
     # for message handling
     app.add_handler(MessageHandler(filters.COMMAND, get_any))
