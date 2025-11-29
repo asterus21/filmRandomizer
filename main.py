@@ -16,13 +16,7 @@ from telegram.ext import (
 from data import Answers, Bot, Chat, Database, Movies, User
 
 
-# The issue to fix: it is needed create the logs storage
-logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
-)
-logger = logging.getLogger(__name__)
-
-
+# constants
 ANSWERS = Answers()
 BOT = Bot()
 CHAT = Chat()
@@ -43,7 +37,12 @@ def find_random_film() -> str:
             port=DATABASE.database["port"]
         ) as connection:
             cursor = connection.cursor()
-            cursor.execute("SELECT film FROM mysql.`films` ORDER BY RAND() LIMIT 1;")
+            cursor.execute(
+                        "SELECT film " \
+                        "FROM mysql.`films` " \
+                        "ORDER BY RAND() " \
+                        "LIMIT 1;"
+                        )
             result = cursor.fetchone()
             return result[0] if result else None
     except pymysql.Error as e:
@@ -58,7 +57,7 @@ def give_random_answer(answers: tuple[str]) -> str:
 
 def get_list_of_genres() -> str:
     """Returns a list of genres."""
-    genres_list = []
+    genres = []
     try:
         with pymysql.connect(
             user=DATABASE.database["user"],
@@ -68,11 +67,16 @@ def get_list_of_genres() -> str:
             port=DATABASE.database["port"]
         ) as connection:
             cursor = connection.cursor()
-            cursor.execute("SELECT DISTINCT genre FROM mysql.`films`;")
-            genres = cursor.fetchall()
-            for genre in genres:
-                genres_list.append(*genre)
-            result = '\n'.join(genres_list)
+            cursor.execute(
+                        "SELECT DISTINCT genre" \
+                        " FROM mysql.`films` " \
+                        "ORDER BY RAND() " \
+                        "LIMIT 10;"
+                        )
+            items = cursor.fetchall()
+            for i in items:
+                genres.append(*i)
+            result = '\n'.join(genres)
             return result if result else None
     except pymysql.Error as e:
         logger.error("Database error: %s", e)
@@ -81,7 +85,7 @@ def get_list_of_genres() -> str:
 
 def get_list_of_directors() -> str:
     """Returns a list of directors."""
-    directors_list = []
+    directors = []
     try:
         with pymysql.connect(
             user=DATABASE.database["user"],
@@ -91,11 +95,16 @@ def get_list_of_directors() -> str:
             port=DATABASE.database["port"]
         ) as connection:
             cursor = connection.cursor()
-            cursor.execute("SELECT DISTINCT director FROM mysql.`films` ORDER BY RAND() LIMIT 10;")
-            directors = cursor.fetchall()
-            for director in directors:
-                directors_list.append(*director)
-            result = '\n'.join(directors_list)
+            cursor.execute(
+                        "SELECT DISTINCT director " \
+                        "FROM mysql.`films`" \
+                        "ORDER BY RAND() " \
+                        "LIMIT 10;"
+                        )
+            items = cursor.fetchall()
+            for i in items:
+                directors.append(*i)
+            result = '\n'.join(directors)
             return result if result else None
     except pymysql.Error as e:
         logger.error("Database error: %s", e)
@@ -174,10 +183,24 @@ async def get_any(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
+# making logs
+logger = logging.getLogger(__name__)
+
+
 # Main function
 def main():
     """The main function of the script."""
+    # starting the bot
     app = ApplicationBuilder().token(BOT.GET_BOT_TOKEN).build()
+    # for logs storage
+    logging.basicConfig(
+            format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+            level=logging.INFO,
+            filename="bot_logs.log",
+            datefmt='%Y-%m-%d %H:%M:%S',
+            force=True
+            )
+    logger.info('Started')
     # for usage
     app.add_handler(CommandHandler("director", get_director))
     app.add_handler(CommandHandler("genre", get_genre))
@@ -188,20 +211,21 @@ def main():
     app.add_handler(CommandHandler("g", get_genre))
     app.add_handler(CommandHandler("f", get_film))
     app.add_handler(CommandHandler("m", get_movie))
-    # for message handling
+    app.add_handler(CommandHandler("s", get_any))
+    # for any other command handling
     app.add_handler(MessageHandler(filters.COMMAND, get_any))
-    app.add_handler(
-        MessageHandler(
-            (
-                filters.Chat(chat_id=CHAT.GET_CHAT_ID) |
-                filters.User(user_id=USER.GET_USER_ID)
-            )
-            & filters.TEXT,
-            answer_to_specific_user,
-        )
-    )
-
+    # app.add_handler(
+    #     MessageHandler(
+    #         (
+    #             filters.Chat(chat_id=CHAT.GET_CHAT_ID) |
+    #             filters.User(user_id=USER.GET_USER_ID)
+    #         )
+    #         & filters.TEXT,
+    #         answer_to_specific_user,
+    #     )
+    # )
     app.run_polling()
+    logger.info('Finished')
 
 
 if __name__ == "__main__":
